@@ -74,29 +74,60 @@ class DeckList():
 
     DeckValues[0] = [The_Fool]
     DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
-    DeckValues[1] = [The_Magician, The_Magician_Reversed]
+    DeckValues[2] = [The_High_Priestess, The_High_Priestess_Reversed]
+    DeckValues[3] = [The_Empress, The_Empress_Reversed]
+    DeckValues[4] = [The_Emperor, The_Emperor_Reversed]
+    DeckValues[5] = [The_Heirophant, The_Heirophant_Reversed]
+    DeckValues[6] = [The_Lovers, The_Lovers_Reversed]
+    DeckValues[7] = [The_Chariot, The_Chariot_Reversed]
+    DeckValues[8] = [Justice, Justice_Reversed]
+    DeckValues[9] = [The_Hermit, The_Hermit_Reversed]
+    DeckValues[10] = [Wheel_Of_Fortune, Wheel_Of_Fortune_Reversed]
+    DeckValues[11] = [Strength, Strength_Reversed]
+    DeckValues[12] = [The_Hanged_Man, The_Hanged_Man_Reversed]
+    DeckValues[13] = [Temperance, Temperance_Reversed]
+    DeckValues[14] = [The_Devil, The_Devil_Reversed]
+    DeckValues[15] = [The_Tower, The_Tower_Reversed]
+    DeckValues[16] = [The_Star, The_star_Reversed]
+    DeckValues[17] = [The_Moon, The_Moon_Reversed]
+    DeckValues[18] = [The_Sun, The_Sun_Reversed]
+    DeckValues[19] = [Judgement, Judgement_Reversed]
+    DeckValues[20] = [The_World, The_World_Reversed]
 
 
 
 
-# aiHand = ?
-# playerHand = ?
+def shuffleDeck():
+    for cards in range(0,len(DeckList.DeckValues)):
+        random.shuffle(DeckList.DeckValues)
 
 def deal():
     hand = DeckList.DeckValues
-    print(hand)
-    for c in range(1):
-        card = deck.pop()
+    for card in range(1):
+        card = DeckList.DeckValues.pop()
+        hand.append(card)
+    return hand
 
+def draw(hand):
+    card = DeckList.DeckValues.pop()
+    hand.append(card)
+    return hand
 
-deal()
+def total(hand):
+    total = 0
+    total += hand
+    return total
+
+def playAgain():
+    again = input("Do you wish to play again? (Yes/No) : ").lower()
+    if (again == "yes"):
+        dealerHand = []
+        playerHand = []
+        deck = DeckList.DeckValues
+        game()
+
+    else:
+        print("Bye!")
+        exit()
+
 
